@@ -4,7 +4,7 @@ void display()
   for(i=0;i<8;i++)
   {
    digitalWrite(clockpin,0);
-   digitalWrite(datapin,bitRead(leddata(a,1));
+   digitalWrite(datapin,bitRead(leddata([a],1));
    digitalWrite(clockpin,1);
   }
   digitalWrite(latchpin,1);
