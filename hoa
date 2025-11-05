@@ -1,0 +1,920 @@
+int leddata[]=
+{
+  //  0b10000001,0b01000010,0b00100100,0b00011000,0b00011000,0b00100100,0b01000010,0b10000001,
+  // 0b1000000,0b11000000,0b11100000,0b11110000,0b11111000,0b11111100,0b11111110,0b11111111,
+  // 0b00000001,0b00000011,0b00000111,0b00001111,0b00011111,0b00111111,0b01111111,0b11111111,
+
+
+  // 0b10000000,0b01000000,0b00100000,0b00010000,0b00001000,0b00000100,0b00000010,0b00000001,
+  // 0b10000001,0b01000001,0b00100001,0b00010001,0b00001001,0b00000101,0b00000011,
+  // 0b10000011,0b01000011,0b00100011,0b00010011,0b00001011,0b10000111,
+  // 0b10000111,0b01000111,0b00100111,0b00010111,0b00001111,
+  // 0b10001111,0b01001111,0b00101111,0b00011111,
+  // 0b10011111,0b01011111,0b00111111,
+  // 0b10111111,0b01111111,
+  // 0b11111111,
+
+
+
+
+  // 0b10000000,0b01000000,0b00100000,0b00010000,0b00001000,0b00000100,0b00000010,0b00000001,
+  //            0b11000000,0b10100000,0b10010000,0b10001000,0b10000100,0b10000010,0b10000001,
+  //                       0b11100000,0b11010000,0b11001000,0b11000100,0b11000010,0b11000001,
+  //                                  0b11110000,0b11101000,0b11100100,0b11100010,0b11100001,
+  //                                             0b11111000,0b11110100,0b11110010,0b11110001,
+  //                                                        0b11111100,0b11111010,0b11111001,
+  //                                                                   0b11111110,0b01111101,
+  //                                                                              0b11111111,
+  
+  
+  
+
+};      
+         
+         
+int datapin=10;
+int clockpin=11;
+int latchpin=12;
+int i,a,j;
+int t1=19;
+int t2=70;
+
+
+void setup() 
+{
+  pinMode(datapin,OUTPUT);
+  pinMode(clockpin,OUTPUT);
+  pinMode(latchpin,OUTPUT);
+  
+  
+}
+
+void loop() 
+{
+
+  Sangtat();
+  Sangtatnguoc();
+}
+
+void Sangtat()
+{
+
+  a=0b00000001;
+  for(j=0;j<8;j++)
+  {
+  
+   digitalWrite(latchpin,0);
+    for(i=0;i<8;i++)
+    {
+   
+      digitalWrite(clockpin,0);
+      digitalWrite(datapin,bitRead(a,i));
+      digitalWrite(clockpin,1);
+    }
+     digitalWrite(latchpin,1);
+     delay(t1);
+    a=a<<1;
+  }  
+    
+ }
+
+void Sangtatnguoc()
+{
+  a=0b00000001;
+  for(j=7;j>=0;j--)
+  {
+  
+   digitalWrite(latchpin,0);
+    for(i=7;i>=0;i--)
+    {
+   
+      digitalWrite(clockpin,0);
+      digitalWrite(datapin,bitRead(a,i));
+      digitalWrite(clockpin,1);
+    }
+     digitalWrite(latchpin,1);
+     delay(t1);
+    a=a<<1;
+  }  
+
+}
+ 
+void display
+{
+  digitalWrite(latchpin,0);
+  for(i=0;i<8;i++)
+  {
+   digitalWrite(clockpin,0);
+   digitalWrite(datapin,bitRead(leddata(a,1));
+   digitalWrite(clockpin,1);
+  }
+  digitalWrite(latchpin,1);
+ 
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+ 
+
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[0],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[1],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[2],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[3],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[4],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[5],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[6],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[7],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[8],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[9],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[10],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[11],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[12],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[13],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[14],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[15],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[16],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[17],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[18],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[19],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[20],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[21],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[22],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[23],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[24],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t2);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[25],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[26],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[27],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[28],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[29],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[30],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[31],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[32],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[33],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[34],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[35],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[7],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[6],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[5],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[4],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[3],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[2],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[1],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[0],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[14],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[13],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[12],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[11],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[10],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[9],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[8],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[20],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[19],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[18],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[17],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[16],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[15],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[25],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[24],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[23],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[22],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[21],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[29],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[28],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[27],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[26],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[32],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[31],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[30],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[34],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[33],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+  // digitalWrite(latchpin,0);
+  // for(i=0;i<8;i++)
+  // {
+  //  digitalWrite(clockpin,0);
+  //  digitalWrite(datapin,bitRead(leddata[35],i));
+  //  digitalWrite(clockpin,1);
+  // }
+  // digitalWrite(latchpin,1);
+  // delay(t1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
